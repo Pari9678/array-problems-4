@@ -1,0 +1,17 @@
+def eq_mid(n):
+    arr = [1]*n + [0] + [1]*n
+    size = len(arr)
+    for i in range(size):
+        left_sum = 0
+        right_sum = 0
+        for j in range(i):
+            left_sum += arr[j]
+        for k in range(i + 1, size):
+            right_sum += arr[k]
+        if left_sum == right_sum:
+            return i
+    return -1
+
+n = int(input("Enter a number: "))
+guess = input("What is eq_mid(" + str(n) + ")? ")
+print(" eq_mid(" + str(n) + ") =", eq_mid(n), "Your guess:", guess)
